@@ -116,9 +116,7 @@
       color: var(--red2);
       display: block;
     }
-    .hero h1 .measure {
-      color: #fff;
-    }
+    .hero h1 .measure { color: #fff; }
     .hero-sub {
       font-size: clamp(1.1rem, 2vw, 1.35rem);
       color: rgba(255,255,255,0.75);
@@ -267,9 +265,7 @@
     }
 
     /* ── ENROLLMENT CHART ── */
-    .chart-wrap {
-      margin: 2.5rem 0;
-    }
+    .chart-wrap { margin: 2.5rem 0; }
     .chart-title {
       font-family: var(--mono);
       font-size: 0.75rem;
@@ -278,16 +274,8 @@
       color: var(--gray);
       margin-bottom: 0.75rem;
     }
-    .bar-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .bar-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .bar-group { display: flex; flex-direction: column; gap: 0.6rem; }
+    .bar-row { display: flex; align-items: center; gap: 0.75rem; }
     .bar-label {
       font-family: var(--mono);
       font-size: 0.78rem;
@@ -300,13 +288,11 @@
       background: var(--lgray);
       height: 28px;
       border-radius: 2px;
-      position: relative;
     }
     .bar-fill {
       height: 100%;
       border-radius: 2px;
       background: var(--navy);
-      transition: width 1s ease;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -370,48 +356,47 @@
       vertical-align: middle;
     }
 
-    /* ── COMPENSATION TABLE ── */
+    /* ── COMPENSATION TABLE (light context, unused) ── */
     .comp-table {
       width: 100%;
       border-collapse: collapse;
       margin: 2rem 0;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
-    .comp-table th {
-      background: var(--navy);
-      color: #fff;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.75rem 1rem;
-      text-align: left;
-    }
-    .comp-table td {
-      padding: 0.65rem 1rem;
-      border-bottom: 1px solid var(--lgray);
-    }
-    .comp-table tr:first-child td {
-      font-weight: 700;
-      color: var(--red);
-      font-size: 1rem;
-    }
-    .comp-table tr:nth-child(even) td { background: var(--cream); }
-    .comp-bar-cell { width: 40%; }
-    .comp-bar {
-      background: var(--lgray);
-      height: 10px;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .comp-bar-fill {
-      height: 100%;
-      background: var(--navy);
-      border-radius: 2px;
-    }
-    .comp-bar-fill.top { background: var(--red); }
 
-    /* ── ARGUMENT BLOCKS ── */
+    /* ── COMPENSATION TABLE on dark background ── */
+    .argument-block .comp-table th {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .argument-block .comp-table th.right { text-align: right; }
+    .argument-block .comp-table td {
+      padding: 0.8rem 1.25rem;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+    }
+    .argument-block .comp-table tr:nth-child(even) td {
+      background: rgba(255,255,255,0.06);
+    }
+    .argument-block .comp-table tr:nth-child(odd) td {
+      background: transparent;
+    }
+    .argument-block .comp-table tbody tr:first-child td {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .argument-block .comp-table .right { text-align: right; }
+
+    /* ── ARGUMENT BLOCK ── */
     .argument-block {
       background: var(--navy);
       color: #fff;
@@ -420,10 +405,7 @@
     }
     .argument-block h2 { color: #fff; }
     .argument-block .accent { color: var(--gold); }
-    .bullet-list {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
+    .bullet-list { list-style: none; margin: 1.5rem 0; }
     .bullet-list li {
       position: relative;
       padding-left: 1.5rem;
@@ -459,11 +441,7 @@
       color: var(--navy);
       margin-bottom: 0.25rem;
     }
-    .signer-title {
-      font-size: 0.8rem;
-      color: var(--gray);
-      line-height: 1.4;
-    }
+    .signer-title { font-size: 0.8rem; color: var(--gray); line-height: 1.4; }
 
     /* ── FOOTER ── */
     footer {
@@ -480,12 +458,7 @@
     footer a:hover { color: rgba(255,255,255,0.85); }
 
     /* ── SOURCE FOOTNOTE ── */
-    .source {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--gray);
-      margin-top: 0.4rem;
-    }
+    .source { font-family: var(--mono); font-size: 0.7rem; color: var(--gray); margin-top: 0.4rem; }
     .source a { color: var(--gray); }
 
     /* ── RESPONSIVE ── */
@@ -723,7 +696,7 @@
     <h2>Generous Salaries, <span class="accent">Lean Maintenance</span></h2>
     <p style="color:rgba(255,255,255,0.8); margin-bottom:1.5rem;">While 4CD defers routine building maintenance and seeks bond funds to cover the gap, its administrative compensation is lavish. The district's chancellor is paid more than the Governor of California.</p>
 
-    <table class="comp-table" style="background:rgba(255,255,255,0.05); color:#fff;">
+    <table class="comp-table">
       <thead>
         <tr>
           <th>Position</th>
@@ -735,38 +708,38 @@
           <td>Chancellor</td>
           <td class="right">$548,112</td>
         </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
+        <tr>
           <td>Vice Chancellors</td>
           <td class="right">$400,274</td>
         </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
-          <td>Associate Vice Chancellors</td>
-          <td class="right">$321,244</td>
-        </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
+        <tr>
           <td>College Presidents</td>
           <td class="right">$367,794</td>
         </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
-          <td>Deans</td>
-          <td class="right">$316,221</td>
-        </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
-          <td>Directors</td>
-          <td class="right">$310,077</td>
-        </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
+        <tr>
           <td>Counselors</td>
           <td class="right">$350,777</td>
         </tr>
-        <tr style="color:rgba(255,255,255,0.8);">
+        <tr>
+          <td>Associate Vice Chancellors</td>
+          <td class="right">$321,244</td>
+        </tr>
+        <tr>
+          <td>Deans</td>
+          <td class="right">$316,221</td>
+        </tr>
+        <tr>
+          <td>Directors</td>
+          <td class="right">$310,077</td>
+        </tr>
+        <tr>
           <td>Vice Presidents</td>
           <td class="right">$307,054</td>
         </tr>
       </tbody>
     </table>
 
-    <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); margin-top:0.5rem;">Figures represent maximum total compensation (salary + benefits) as of 2024. For comparison, Governor Newsom's salary is $245,929.</p>
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.45); margin-top:0.75rem;">Figures represent maximum total compensation (salary + benefits) as of 2024. Governor Newsom's salary for comparison: $245,929.</p>
 
     <ul class="bullet-list" style="margin-top:1.5rem;">
       <li>4CD's chancellor earns <strong>more than twice</strong> Governor Newsom's salary — $548,112 vs. $245,929.</li>
