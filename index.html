@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No on Measure G — Contra Costa Community College Bond</title>
+  <meta name="description" content="Measure G would add $920 million in new debt — more than the three previous CCCCD bond measures combined — while enrollment has fallen 28% since 2002.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0d1f3c;
+      --navy2:   #162a4f;
+      --red:     #c0392b;
+      --red2:    #e74c3c;
+      --gold:    #c9941a;
+      --cream:   #f5f1eb;
+      --offwhite:#faf8f4;
+      --gray:    #6b7280;
+      --lgray:   #e8e4de;
+      --text:    #1a1a2e;
+      --serif:   'Source Serif 4', Georgia, serif;
+      --display: 'Playfair Display', Georgia, serif;
+      --mono:    'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--serif);
+      background: var(--offwhite);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .nav-brand {
+      font-family: var(--display);
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-brand span { color: var(--red2); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,148,26,0.12) 0%, transparent 50%);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.03) 39px,
+        rgba(255,255,255,0.03) 40px
+      );
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      position: relative;
+    }
+    .hero h1 .no {
+      color: var(--red2);
+      display: block;
+    }
+    .hero h1 .measure {
+      color: #fff;
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 640px;
+      margin: 1.5rem auto 0;
+      position: relative;
+    }
+    .hero-cta {
+      display: inline-block;
+      margin-top: 2.5rem;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      position: relative;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .hero-cta:hover { background: var(--red2); transform: translateY(-2px); }
+
+    /* ── TICKER STRIP ── */
+    .ticker {
+      background: var(--red);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: marquee 28s linear infinite;
+    }
+    .ticker-inner span { margin: 0 3rem; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── STAT CARDS ── */
+    .stats-band {
+      background: var(--navy2);
+      padding: 3rem 2rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+    }
+    .stat-card {
+      background: var(--navy2);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.1;
+      display: block;
+    }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.5rem;
+      display: block;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    section + section {
+      border-top: 1px solid var(--lgray);
+    }
+    h2 {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    h2 .accent { color: var(--red); }
+    h3 {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin: 2rem 0 0.75rem;
+    }
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .lede {
+      font-size: 1.15rem;
+      color: var(--navy);
+      font-weight: 600;
+      border-left: 4px solid var(--red);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--cream);
+      border-left: 5px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout p { margin-bottom: 0.5rem; }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout strong { color: var(--navy); }
+
+    /* ── ALARM BOX ── */
+    .alarm {
+      background: #fff5f5;
+      border: 2px solid var(--red);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+      border-radius: 4px;
+    }
+    .alarm-title {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── ENROLLMENT CHART ── */
+    .chart-wrap {
+      margin: 2.5rem 0;
+    }
+    .chart-title {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.75rem;
+    }
+    .bar-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .bar-label {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--gray);
+      min-width: 70px;
+      text-align: right;
+    }
+    .bar-outer {
+      flex: 1;
+      background: var(--lgray);
+      height: 28px;
+      border-radius: 2px;
+      position: relative;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--navy);
+      transition: width 1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+    }
+    .bar-fill.low { background: var(--red); }
+    .bar-val {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .bar-note {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gold);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    /* ── DEBT TABLE ── */
+    .debt-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.92rem;
+    }
+    .debt-table th {
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .debt-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--lgray);
+    }
+    .debt-table tr:nth-child(even) td { background: var(--cream); }
+    .debt-table tr.total td {
+      font-weight: 700;
+      color: var(--red);
+      border-top: 2px solid var(--red);
+      background: #fff5f5;
+    }
+    .debt-table .right { text-align: right; }
+    .debt-table .tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* ── COMPENSATION TABLE ── */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+    }
+    .comp-table th {
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .comp-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--lgray);
+    }
+    .comp-table tr:first-child td {
+      font-weight: 700;
+      color: var(--red);
+      font-size: 1rem;
+    }
+    .comp-table tr:nth-child(even) td { background: var(--cream); }
+    .comp-bar-cell { width: 40%; }
+    .comp-bar {
+      background: var(--lgray);
+      height: 10px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .comp-bar-fill {
+      height: 100%;
+      background: var(--navy);
+      border-radius: 2px;
+    }
+    .comp-bar-fill.top { background: var(--red); }
+
+    /* ── ARGUMENT BLOCKS ── */
+    .argument-block {
+      background: var(--navy);
+      color: #fff;
+      padding: 3rem 2rem;
+      margin: 3rem -2rem;
+    }
+    .argument-block h2 { color: #fff; }
+    .argument-block .accent { color: var(--gold); }
+    .bullet-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.9rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── SIGNERS ── */
+    .signer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .signer-card {
+      background: var(--cream);
+      border: 1px solid var(--lgray);
+      border-top: 3px solid var(--navy);
+      padding: 1rem 1.25rem;
+      border-radius: 0 0 4px 4px;
+    }
+    .signer-name {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .signer-title {
+      font-size: 0.8rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+    }
+    footer a { color: rgba(255,255,255,0.4); }
+
+    /* ── SOURCE FOOTNOTE ── */
+    .source {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--gray);
+      margin-top: 0.4rem;
+    }
+    .source a { color: var(--gray); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .argument-block { margin: 3rem -1rem; padding: 2.5rem 1.25rem; }
+      section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><span>NO</span> on Measure G</div>
+  <ul>
+    <li><a href="#debt">The Debt</a></li>
+    <li><a href="#enrollment">Enrollment</a></li>
+    <li><a href="#compensation">Salaries</a></li>
+    <li><a href="#arguments">Arguments</a></li>
+    <li><a href="#who">Who We Are</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Contra Costa County · June 2, 2026</p>
+  <h1>
+    <span class="no">Vote NO</span>
+    <span class="measure">on Measure G</span>
+  </h1>
+  <p class="hero-sub">The Contra Costa Community College District wants $920 million in new debt — more than all three previous bond measures combined — while enrollment has fallen 28% since 2002.</p>
+  <a href="#arguments" class="hero-cta">See the Arguments →</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="ticker-inner">
+    <span>$920M in new principal</span>
+    <span>·</span>
+    <span>$963M in new interest</span>
+    <span>·</span>
+    <span>$1.88B total repayment</span>
+    <span>·</span>
+    <span>Final payoff 2059</span>
+    <span>·</span>
+    <span>Enrollment down 28% since 2002</span>
+    <span>·</span>
+    <span>No senior exemption</span>
+    <span>·</span>
+    <span>$1,623 more per Contra Costa resident</span>
+    <span>·</span>
+    <span>Chancellor paid more than Governor Newsom</span>
+    <span>·</span>
+    <span>$920M in new principal</span>
+    <span>·</span>
+    <span>$963M in new interest</span>
+    <span>·</span>
+    <span>$1.88B total repayment</span>
+    <span>·</span>
+    <span>Final payoff 2059</span>
+    <span>·</span>
+    <span>Enrollment down 28% since 2002</span>
+    <span>·</span>
+    <span>No senior exemption</span>
+    <span>·</span>
+    <span>$1,623 more per Contra Costa resident</span>
+    <span>·</span>
+    <span>Chancellor paid more than Governor Newsom</span>
+    <span>·</span>
+  </span>
+</div>
+
+<!-- STAT CARDS -->
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-number">$920M</span>
+      <span class="stat-label">New debt — principal only</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">$1.88B</span>
+      <span class="stat-label">Total repayment with interest</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">$2.61B</span>
+      <span class="stat-label">Total bonded debt if Measure G passes</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">2059</span>
+      <span class="stat-label">Year of final Measure G payment</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">21,940</span>
+      <span class="stat-label">Actual full-time equivalent students (2024–25)</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: THE DEBT -->
+<section id="debt">
+  <h2>Already Deeply in <span class="accent">Debt</span></h2>
+  <p class="lede">The Contra Costa Community College District has already passed three bond measures. Taxpayers are still paying on all three.</p>
+  <p>Over the past two decades, 4CD has issued bonds totaling $856.5 million in principal alone — and Contra Costa County property owners still owe nearly <strong>$727 million</strong> including interest, with the final payment on the 2014 Measure E bond not due until 2039.</p>
+
+  <table class="debt-table">
+    <thead>
+      <tr>
+        <th>Bond Measure</th>
+        <th>Year</th>
+        <th class="right">Principal</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Measure A</td>
+        <td>2002</td>
+        <td class="right">$120 million</td>
+        <td>Still paying</td>
+      </tr>
+      <tr>
+        <td>Measure A</td>
+        <td>2006</td>
+        <td class="right">$286.5 million</td>
+        <td>Still paying</td>
+      </tr>
+      <tr>
+        <td>Measure E</td>
+        <td>2014</td>
+        <td class="right">$450 million</td>
+        <td>Payoff 2039</td>
+      </tr>
+      <tr class="total">
+        <td><strong>Total existing debt</strong></td>
+        <td></td>
+        <td class="right"><strong>$856.5 million</strong></td>
+        <td>$727M still owed</td>
+      </tr>
+      <tr>
+        <td><strong>Measure G</strong> <span class="tag">NEW</span></td>
+        <td>2026</td>
+        <td class="right">$920 million</td>
+        <td>Payoff 2059</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p><strong>Measure G alone — $920 million in principal — is greater than the sum of all three previous bond measures combined.</strong></p>
+    <p>With interest, Measure G's total repayment reaches <strong>$1.88 billion</strong>. Combined with existing debt, total bonded indebtedness would reach <strong>$2.61 billion</strong>, with Contra Costa County's assessed property values as collateral.</p>
+  </div>
+
+  <h3>What Does It Cost Each Taxpayer?</h3>
+  <p>4CD advertises Measure G as adding only <strong>$10 per $100,000</strong> of assessed property value. But that framing relies on a 33-year repayment window to make a massive bill appear small. And it doesn't tell the whole story:</p>
+  <ul style="margin: 1rem 0 1rem 1.5rem;">
+    <li style="margin-bottom:0.5rem">Until Measure E's 2039 payoff, 4CD bond taxes already average <strong>$13.97 per $100,000</strong>.</li>
+    <li style="margin-bottom:0.5rem">Measure G would add $10 on top of that — through 2059 and beyond.</li>
+    <li style="margin-bottom:0.5rem">The $10 estimate assumes county assessed values grow <strong>4% annually</strong>. If growth falls short, the rate could be <em>higher</em>. 4CD is legally required to disclose that its estimate "is based upon 4CD's projections and estimates only, which are not binding upon 4CD."</li>
+    <li>Measure G has <strong>no senior exemption</strong>.</li>
+  </ul>
+
+  <div class="alarm">
+    <div class="alarm-title">The Bottom Line</div>
+    <p>Under Measure G, every Contra Costa County resident — including seniors on fixed incomes — would owe an additional <strong>$1,623</strong> per capita to bond underwriters and banks ($1.88 billion ÷ 1,158,225 residents).</p>
+  </div>
+</section>
+
+<!-- SECTION: ENROLLMENT -->
+<section id="enrollment">
+  <h2>The "50,000 Students" <span class="accent">Myth</span></h2>
+  <p class="lede">4CD claims "nearly 50,000 students" attend its three colleges. That figure is deliberately misleading — it counts anyone who registers for even a single course.</p>
+  <p>California's actual funding metric — and the honest measure of institutional size — is <strong>Full Time Equivalent Students (FTES)</strong>. One FTES equals 525 instructional hours (15 hours × 35 weeks). By this standard, 4CD enrollment has <em>collapsed</em>.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">4CD Full-Time Equivalent Students (FTES) — at Time of Each Bond Measure</div>
+    <div class="bar-group">
+      <div class="bar-row">
+        <div class="bar-label">2002 (Msr A)</div>
+        <div class="bar-outer">
+          <div class="bar-fill" style="width:100%">
+            <span class="bar-val">30,648</span>
+          </div>
+        </div>
+        <span class="bar-note">Bond passed</span>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2006 (Msr A)</div>
+        <div class="bar-outer">
+          <div class="bar-fill" style="width:92%">
+            <span class="bar-val">~28,200</span>
+          </div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2014 (Msr E)</div>
+        <div class="bar-outer">
+          <div class="bar-fill" style="width:92.5%">
+            <span class="bar-val">28,367</span>
+          </div>
+        </div>
+        <span class="bar-note">Bond passed</span>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2024–25</div>
+        <div class="bar-outer">
+          <div class="bar-fill low" style="width:71.5%">
+            <span class="bar-val">21,940</span>
+          </div>
+        </div>
+        <span class="bar-note" style="color:var(--red)">▼ 28% since 2002</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="source">Source: State Chancellor's Full-Time Equivalent Student (FTES) Report, October 30, 2025. <a href="https://www.cccco.edu/-/media/CCCCO-Website/docs/report/2025ftesreport11a11y.pdf" target="_blank">View report (p. 9)</a></p>
+
+  <div class="callout">
+    <p><strong>When 4CD passed its first bond in 2002, it served 30,648 full-time equivalent students. Today it serves only 21,940 — a drop of nearly 9,000 students, or 28%.</strong></p>
+    <p>Yet the district now wants to borrow $920 million to build expensive new facilities. Adding costly new construction while enrollment trends sharply downward is exactly the wrong approach.</p>
+  </div>
+
+  <p>4CD's own Facilities Plans show extensive new construction planned at all three colleges. As in struggling K-12 systems: building lavish new facilities while enrollment falls does not serve students — it serves construction contractors and the unions that back Project Stabilization Agreements.</p>
+
+  <div class="alarm">
+    <div class="alarm-title">Deferred Maintenance: A Recurring Excuse</div>
+    <p>"Deferred maintenance" projects — roofing, seismic retrofits, electrical, HVAC — appear over and over in 4CD bond project summaries dating back to 2002. If three bond measures totaling $856.5 million haven't resolved basic maintenance needs, why should voters believe a fourth will?</p>
+    <p style="margin-top:0.75rem">The answer may lie in spending priorities. Over the last decade, 4CD's maintenance budget has crept from just 0.10% to 0.20% of Plant Replacement Value. The standard for commercial buildings is <strong>2–5%</strong>. The district spends a fraction of what responsible building management requires — then asks taxpayers to cover the gap through bonds.</p>
+  </div>
+</section>
+
+<!-- SECTION: COMPENSATION (dark bg) -->
+<div class="argument-block" id="compensation">
+  <section style="border:none; padding:0;">
+    <h2>Generous Salaries, <span class="accent">Lean Maintenance</span></h2>
+    <p style="color:rgba(255,255,255,0.8); margin-bottom:1.5rem;">While 4CD defers routine building maintenance and seeks bond funds to cover the gap, its administrative compensation is lavish. The district's chancellor is paid more than the Governor of California.</p>
+
+    <table class="comp-table" style="background:rgba(255,255,255,0.05); color:#fff;">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th class="right">Max Total Compensation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Chancellor</td>
+          <td class="right">$548,112</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>Vice Chancellors</td>
+          <td class="right">$400,274</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>Associate Vice Chancellors</td>
+          <td class="right">$321,244</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>College Presidents</td>
+          <td class="right">$367,794</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>Deans</td>
+          <td class="right">$316,221</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>Directors</td>
+          <td class="right">$310,077</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>Counselors</td>
+          <td class="right">$350,777</td>
+        </tr>
+        <tr style="color:rgba(255,255,255,0.8);">
+          <td>Vice Presidents</td>
+          <td class="right">$307,054</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.5); margin-top:0.5rem;">Figures represent maximum total compensation (salary + benefits) as of 2024. For comparison, Governor Newsom's salary is $245,929.</p>
+
+    <ul class="bullet-list" style="margin-top:1.5rem;">
+      <li>4CD's chancellor earns <strong>more than twice</strong> Governor Newsom's salary — $548,112 vs. $245,929.</li>
+      <li>The district maintains generous executive compensation while deferring routine building upkeep.</li>
+      <li>Rather than restraining administrative costs, 4CD seeks to borrow $920 million from taxpayers.</li>
+    </ul>
+  </section>
+</div>
+
+<!-- SECTION: OFFICIAL ARGUMENTS -->
+<section id="arguments">
+  <h2>Official <span class="accent">Arguments Against</span> Measure G</h2>
+  <p class="lede">The following arguments were submitted for the official ballot pamphlet by the No on Measure G committee.</p>
+
+  <h3>Primary Argument Against Measure G</h3>
+  <p><strong>Measure G: far too much, far too soon.</strong></p>
+  <p>The Contra Costa Community College District (4CD) passed three bonds prior to Measure G: Measure A (2002, $120 million); another Measure A (2006, $286.5 million); and Measure E (2014, $450 million). Those three measures totaled $856.5 million in principal alone.</p>
+  <p>Bonds are loans, paid back with interest. We're still paying on all three prior bonds. That remaining payback obligation, including interest, is still nearly $727 million, with Measure E's final payment scheduled for 2039.</p>
+  <p>Now comes Measure G, adding $920 million more — greater than the sum total of all three previous bonds. With interest, Measure G's total repayment reaches $1.88 billion, by 2059. Adding earlier measures, total bonded indebtedness would reach $2.61 billion, with Contra Costa County's assessed property values as collateral.</p>
+  <p>Until Measure E's 2039 payoff, 4CD bond taxes already average $13.97 per $100,000 of assessed value. Measure G would add $10 to that — and continue on its own long past 2039. 4CD's tax rate estimates are based on 4% annual property value growth and are, by the district's own required disclosure, "not binding upon 4CD."</p>
+  <p>Under Measure G, Contra Costa County residents — with no senior exemption — would owe an additional $1,623 per capita to bond underwriters and banks.</p>
+  <p><strong>4CD should rely less on successive large bond measures and more on its existing budget to maintain its existing buildings.</strong></p>
+
+  <h3>Rebuttal Argument Against Measure G</h3>
+  <p>4CD is already deeply in debt. Three previous bond measures totaled $856.5 million in principal. Including interest, county taxpayers still owe nearly $727 million, with final payoff in 2039.</p>
+  <p>4CD's claim of "nearly 50,000 students" is highly misleading — it includes single-course enrollees. California's funding metric is Full Time Equivalent Students (FTES). When 2002's bond passed, FTES was 30,648. By 2014, it was 28,367. In 2024–25, it was only <strong>21,940</strong>.</p>
+  <p>Adding expensive new facilities while enrollment trends sharply downward is ill-advised. Yet Measure G intends $920 million in new principal — plus $963 million in interest — with final payoff in 2059.</p>
+  <p>How many bond measures will it take to complete the same fundamental "deferred maintenance" projects — roofing repairs, seismic retrofits, electrical, HVAC — that appear over and over in 4CD's bond summaries?</p>
+  <p>4CD's "Project Stabilization Agreements" — exclusive union construction contracts granted in exchange for no-strike promises — increase costs. Bond measures like Measure G have no senior exemption.</p>
+  <p><strong>With shrinking enrollments: instead of building plush new facilities with new borrowed millions, 4CD should maintain existing buildings in better condition, with existing money.</strong></p>
+</section>
+
+<!-- SECTION: WHO WE ARE -->
+<section id="who">
+  <h2>Who <span class="accent">We Are</span></h2>
+  <p>The No on Measure G committee is sponsored by the <strong>Contra Costa Taxpayers Association (CoCoTax)</strong> and community members who believe the district should practice fiscal responsibility before asking taxpayers for nearly a billion dollars in new debt.</p>
+
+  <div class="signer-grid">
+    <div class="signer-card">
+      <div class="signer-name">Denise Kalm</div>
+      <div class="signer-title">President Pro Tem, Contra Costa Taxpayers Association</div>
+    </div>
+    <div class="signer-card">
+      <div class="signer-name">Jeff Black</div>
+      <div class="signer-title">Corporate Financial Analyst, Retired; Former School Facilities Oversight Committee Member, Danville School Bond Oversight</div>
+    </div>
+    <div class="signer-card">
+      <div class="signer-name">Michael Arata</div>
+      <div class="signer-title">Industrial Consultant, Retired; Former Chemistry Instructor and Swim Coach</div>
+    </div>
+    <div class="signer-card">
+      <div class="signer-name">Taiwo Abugan</div>
+      <div class="signer-title">MBA, CPA; Senior Assistant Corporate Vice President; Local Member, Danville School Bond Oversight Committee</div>
+    </div>
+    <div class="signer-card">
+      <div class="signer-name">Luis Cornejo</div>
+      <div class="signer-title">Independent Contractor, Pittsburg</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:2.5rem;">
+    <p><strong>Election date: June 2, 2026.</strong> Contra Costa County is a vote-by-mail jurisdiction. Ballots will be mailed to all registered voters before election day.</p>
+    <p style="margin-top:0.5rem;">To learn more or get involved, contact the Contra Costa Taxpayers Association.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>NOonMeasureG.info</p>
+  <p style="margin-top:0.4rem;">Paid for by Contra Costa Taxpayers Association &mdash; Committee to Oppose Measure G</p>
+  <p style="margin-top:0.4rem; font-size:0.65rem; color:rgba(255,255,255,0.3);">Election date: June 2, 2026 &nbsp;&middot;&nbsp; Contra Costa Community College District Bond Measure</p>
+</footer>
+
+</body>
+</html>
